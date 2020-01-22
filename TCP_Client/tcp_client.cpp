@@ -13,7 +13,7 @@
 #pragma comment (lib, "AdvApi32.lib")
 
 #define PORT_BUFFER_LEN 10
-#define DEFAULT_BUFLEN 16384
+#define DEFAULT_BUFLEN 8192
 
 TCPClient::TCPClient(std::string server, unsigned short int port)
 {

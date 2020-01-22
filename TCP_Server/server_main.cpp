@@ -202,10 +202,14 @@ void requestWorker(unordered_map<string, vector<string>>& forum, shared_mutex& f
 			auto itr = forum.begin();
 
 			while (itr != forum.end()) {
-				topics.append(itr->first);
-				if (++itr != forum.end()) {
-					topics += "#";
+				if (!itr->second.empty())
+				{
+					topics.append(itr->first + "#");
 				}
+				++itr;
+			}
+			if (!topics.empty()) {
+				topics.pop_back();
 			}
 			frm_mtx.unlock_shared();
 
@@ -213,8 +217,7 @@ void requestWorker(unordered_map<string, vector<string>>& forum, shared_mutex& f
 			server.sendReply(receivedData);
 			continue;
 		}
-
-		if (receivedData.request != "exit") {
+		else {
 			receivedData.reply = "";
 			server.sendReply(receivedData);
 		}

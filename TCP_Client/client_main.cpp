@@ -14,7 +14,6 @@
 
 #include "tcp_client.h"
 
-
 //#define ALLOW_PRINT  //Uncomment to enable printing of messages to console.
 
 #ifdef ALLOW_PRINT
@@ -231,14 +230,15 @@ string nextRequest(int count, MessageType type) {
 	switch (type) {
 	case MessageType::POST:
 	{
-		int r = count % 6;
-		int m = count % 5;
+		int r(count % 6);
+		int m(count % 5);
 		return "POST@" + topics[r] + "#" + messages[topics[r]][m];
 	}
 	case MessageType::READ:
 	{
-		int r = count % 6;
-		int n = count / 6;
+		int r(count % 6);
+		int approxRequests(count / 6);
+		int n(approxRequests > 0 ? rand() % approxRequests : 1);
 		return "READ@" + topics[r] + "#" + to_string(n);
 	}
 	case MessageType::COUNT:
