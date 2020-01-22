@@ -122,7 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="request_parser.h" />
-    <ClInclude Include="tcp_received_socket_data.h" />
+    <ClInclude Include="tcp_data.h" />
     <ClInclude Include="tcp_server.h" />
     <ClInclude Include="ThreadPool.h" />
   </ItemGroup>

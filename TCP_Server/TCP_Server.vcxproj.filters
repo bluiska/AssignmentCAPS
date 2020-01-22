@@ -29,13 +29,13 @@
     <ClInclude Include="request_parser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="tcp_received_socket_data.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="tcp_server.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ThreadPool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tcp_data.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

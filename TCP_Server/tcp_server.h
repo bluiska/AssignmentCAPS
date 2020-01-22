@@ -1,7 +1,7 @@
 #ifndef __TCPSERVER_H
 #define __TCPSERVER_H
 
-#include "tcp_received_socket_data.h"
+#include "tcp_data.h"
 
 class TCPServer
 {

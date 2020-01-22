@@ -66,25 +66,16 @@ int main() {
 	unordered_map<string, vector<string>> forumMap;
 	shared_mutex forum_mtx;
 
-	cout << "Detected hardware concurrency: " << thread::hardware_concurrency() << endl;
-	cout << "Starting server. Send \"exit\" (without quotes) to terminate a client connection." << endl;
+	cout << "Starting server, waiting for connections." << endl;
 
 	thread worker1(requestWorker, ref(forumMap), ref(forum_mtx));
-	//thread worker2(requestWorker, ref(forumMap), ref(forum_mtx));
 
 	SetThreadPriority(worker1.native_handle(), THREAD_PRIORITY_HIGHEST);
-	//SetThreadPriority(worker2.native_handle(), THREAD_PRIORITY_ABOVE_NORMAL);
 
 	worker1.detach();
-	//worker2.detach();
 
 	while (1) {
 		ReceivedSocketData receivedData(server.accept());
-
-		//Don't detach, retain pointer to later delete. Maybe?
-		//thread listener(requestListener, receivedData);
-		//SetThreadPriority(listener.native_handle(), THREAD_PRIORITY_BELOW_NORMAL);
-		//listener.detach();
 		threadPool.enqueue(requestListener, receivedData);
 	}
 
