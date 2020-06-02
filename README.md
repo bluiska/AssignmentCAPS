@@ -1,4 +1,4 @@
-# AssignmentCAPS - Gergo Kekesi (b6017384)
+# AssignmentCAPS - Gergo Kekesi
 
 A TCP client server application using the winsock library, designed to achieve high throughput.
 
