@@ -1,5 +1,7 @@
 # AssignmentCAPS - Gergo Kekesi (b6017384)
 
+A TCP client server application using the winsock library, designed to achieve high throughput.
+
 -AssignmentCAPS
 	-TCP_Client
 		-client_main.cpp - The main file of the TCP Client containing the code for the 
